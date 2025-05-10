@@ -1,0 +1,15 @@
+{
+    "name": "v-nahornyi/wp-brands",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Vladyslav Nahornyi",
+            "email": "highpassion90@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Clr\\": "classes/"
+        }
+    }
+}

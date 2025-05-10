@@ -1,14 +1,14 @@
 <?php
 
-namespace clr_brands;
+namespace Clr\PostType;
 
-class Clr_Post_Types {
-	public static function setup_entities(): void {
+class ClrProduct extends ClrPostType {
+	public static function setup(): void {
 		self::register_products();
 		self::register_product_meta();
 	}
 
-	public static function register_products() {
+	public static function register_products(): void {
 		$labels = array(
 			'name'                  => __( 'Products', 'clr-brands' ),
 			'singular_name'         => __( 'Product', 'clr-brands' ),
@@ -84,7 +84,7 @@ class Clr_Post_Types {
 		) );
 	}
 
-	private static function product_meta_config(): array {
+	protected static function product_meta_config(): array {
 		$fields = [
 			// Image (ACF Image Picker)
 			[

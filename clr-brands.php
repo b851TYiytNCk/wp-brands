@@ -4,11 +4,11 @@
  * Version: 1.0.0
  */
 
-namespace clr_brands;
+namespace Clr;
 
 defined( 'ABSPATH' ) || exit;
 
-class ClrBrands {
+final class ClrBrands {
 
 	private static ?ClrBrands $instance;
 
@@ -32,22 +32,11 @@ class ClrBrands {
 	}
 
 	private function setup_entities(): void {
-		Clr_Post_Types::setup_entities();
+		ClrEntityManager::init();
 	}
 
 	private function autoload_classes(): void {
-		spl_autoload_register( function ( $class ) {
-			// Omit __NAMESPACE__ as first index, take only class name
-			$className = explode( '\\', $class );
-			$className = $className[1] ?? $className[0];
-			$className = 'class-' . strtolower( $className );
-			$className = str_replace( '_', '-', $className );
-			$class_file = CLR_PATH . '/classes/' . $className . '.php';
-
-			if ( file_exists( $class_file ) ) {
-				require_once $class_file;
-			}
-		} );
+		require __DIR__ . '/vendor/autoload.php';
 	}
 
 	private function enqueue_assets(): void {
