@@ -58,7 +58,7 @@ class Clr_Post_Types {
 	}
 
 	public static function register_product_meta(): void {
-		add_action( 'acf/init', [ __CLASS__, 'acf_add_product_meta' ], -1 );
+		add_action( 'acf/init', [ __CLASS__, 'acf_add_product_meta' ], - 1 );
 	}
 
 	public static function acf_add_product_meta(): void {
@@ -72,12 +72,12 @@ class Clr_Post_Types {
 			'label_placement'       => 'top',
 			'instruction_placement' => 'label',
 			'active'                => true,
-			'location' => array(
+			'location'              => array(
 				array(
 					array(
-						'param' => 'post_type',
+						'param'    => 'post_type',
 						'operator' => '==',
-						'value' => 'product',
+						'value'    => 'product',
 					),
 				),
 			),
@@ -126,7 +126,13 @@ class Clr_Post_Types {
 				'key'   => 'how_to_use',
 				'label' => 'How To Use',
 				'name'  => 'how_to_use',
-				'type'  => 'file',
+				'type'  => 'wysiwyg',
+			],
+			[
+				'key'   => 'WtbAlt',
+				'label' => 'WtbAlt',
+				'name'  => 'WtbAlt',
+				'type'  => 'text',
 			],
 			// Product Use (Checkbox)
 			[
@@ -143,13 +149,6 @@ class Clr_Post_Types {
 				'name'    => 'rooms',
 				'type'    => 'checkbox',
 				'choices' => [/* Add options here */ ],
-			],
-			// Not Subject to CA Act (True/False)
-			[
-				'key'   => 'not_subject_to_ca_act',
-				'label' => 'Not Subject to CA Act',
-				'name'  => 'not_subject_to_ca_act',
-				'type'  => 'checkbox',
 			],
 			// Surfaces (Checkbox)
 			[
@@ -196,25 +195,6 @@ class Clr_Post_Types {
 				'name'  => 'subhead',
 				'type'  => 'text',
 			],
-			// UPC Code Fields (Text)
-			[
-				'key'   => 'upc_code',
-				'label' => 'UPC Code',
-				'name'  => 'upc_code',
-				'type'  => 'text',
-			],
-			[
-				'key'   => 'sort_top',
-				'label' => 'Sort Top',
-				'name'  => 'sort_top',
-				'type'  => 'checkbox',
-			],
-			[
-				'key'   => 'is_new_product',
-				'label' => 'Is New Product',
-				'name'  => 'is_new_product',
-				'type'  => 'true_false',
-			],
 			// Custom Size Text (Text Area)
 			[
 				'key'   => 'custom_size_text',
@@ -229,30 +209,115 @@ class Clr_Post_Types {
 				'name'  => 'how_to_use_header',
 				'type'  => 'text',
 			],
-			// Product Use Proline (True/False)
+			// UPC Code Fields (Text)
 			[
-				'key'   => 'product_use_proline',
-				'label' => 'Product Use Proline',
-				'name'  => 'product_use_proline',
+				'key'   => 'upc_code',
+				'label' => 'UPC Code',
+				'name'  => 'upc_code',
+				'type'  => 'file',
+			],
+			[
+				'key'   => 'upc_code2',
+				'label' => 'UPC Code 2',
+				'name'  => 'upc_code2',
+				'type'  => 'file',
+			],
+			[
+				'key'   => 'upc_code3',
+				'label' => 'UPC Code 3',
+				'name'  => 'upc_code3',
+				'type'  => 'file',
+			],
+			[
+				'key'   => 'upc_code4',
+				'label' => 'UPC Code 4',
+				'name'  => 'upc_code4',
+				'type'  => 'file',
+			],
+			[
+				'key'   => 'upc_code5',
+				'label' => 'UPC Code 5',
+				'name'  => 'upc_code5',
+				'type'  => 'file',
+			],
+			[
+				'key'   => 'upc_code_alt',
+				'label' => 'UPC Code Alt',
+				'name'  => 'upc_code_alt',
+				'type'  => 'text',
+			],
+			[
+				'key'   => 'upc_code_alt2',
+				'label' => 'UPC Code 2 Alt',
+				'name'  => 'upc_code_alt2',
+				'type'  => 'text',
+			],
+			[
+				'key'   => 'upc_code_alt3',
+				'label' => 'UPC Code 3 Alt',
+				'name'  => 'upc_code_alt3',
+				'type'  => 'text',
+			],
+			[
+				'key'   => 'upc_code_alt4',
+				'label' => 'UPC Code 4 Alt',
+				'name'  => 'upc_code_alt4',
+				'type'  => 'text',
+			],
+			[
+				'key'   => 'upc_code_alt5',
+				'label' => 'UPC Code 5 Alt',
+				'name'  => 'upc_code_alt5',
+				'type'  => 'text',
+			],
+			[
+				'key'   => 'sort_top',
+				'label' => 'Sort Top',
+				'name'  => 'sort_top',
+				'type'  => 'true_false',
+			],
+			// Not Subject to CA Act (True/False)
+			[
+				'key'   => 'not_subject_to_ca_act',
+				'label' => 'Not Subject to CA Act',
+				'name'  => 'not_subject_to_ca_act',
 				'type'  => 'true_false',
 			],
 			[
-				'key' => 'field_product_application',
-				'label' => 'Product Application',
-				'name' => 'product_application',
-				'type' => 'checkbox',
-				'choices' => array(
-					// Add application options here
+				'key'   => 'is_new_product',
+				'label' => 'Is New Product',
+				'name'  => 'is_new_product',
+				'type'  => 'true_false',
+			],
+			[
+				'key'   => 'show_product_safer_choice_logo',
+				'label' => 'Show Product Safer Choice Logo',
+				'name'  => 'show_product_safer_choice_logo',
+				'type'  => 'true_false',
+			],
+			[
+				'key'     => 'field_product_application',
+				'label'   => 'Product Application',
+				'name'    => 'product_application',
+				'type'    => 'checkbox',
+				'choices' => array(// Add application options here
 				),
+			],
+			// Product Use Proline (True/False)
+			[
+				'key'     => 'product_use_proline',
+				'label'   => 'Product Use Proline',
+				'name'    => 'product_use_proline',
+				'type'    => 'checkbox',
+				'choices' => [],
 			],
 			// Product Type (Checkbox)
 			[
-				'key' => 'field_product_type',
-				'label' => 'Product Type',
-				'name' => 'product_type',
-				'type' => 'checkbox',
-				'choices' => array(
-					// Add type options here
+				'key'     => 'field_product_type',
+				'label'   => 'Product Type',
+				'name'    => 'product_type',
+				'type'    => 'checkbox',
+				'choices' => array(// Add type options here
 				),
 			],
 			// Show Proline Safer Choice (True/False)
@@ -263,6 +328,7 @@ class Clr_Post_Types {
 				'type'  => 'true_false',
 			],
 		];
+
 		return $fields;
 	}
 }
